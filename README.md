@@ -24,7 +24,6 @@
                 <button class="nav-link text-left" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false" onclick="show('Failed')">Failed</button>
             </div>
             <div class="tab-content mt-3" id="v-pills-tabContent">
-
                 <!-- common things to be specified here -->
                 
                 <table class="table" id="table">
