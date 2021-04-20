@@ -130,10 +130,68 @@ function createRows(records){
             tr.appendChild(td_4);
             tr.appendChild(td_5);
 
+            // adding modal description to rows 
+
+            tr.setAttribute("data-bs-toggle","modal");
+            tr.setAttribute("data-bs-target","#rowModal");
+            tr.setAttribute("onclick","setModal('"+records[i][0]+"' , '"+records[i][3]+"' , '"+records[i][4]+"' )");
+
+
             tbody.appendChild(tr);
         }
     }
 }
+
+function setModal(id , description , status){
+
+    title = document.getElementById('modalTitle');
+    desc = document.getElementById('modalTaskDec');
+    stat = document.getElementById('taskStatus');
+
+    btn1 = document.getElementById('passBtn');
+    btn2 = document.getElementById('failBtn');
+
+    btn1.style.display = 'none';
+    btn2.style.display = 'none';
+
+    title_txt = "# Task ID: "+id;
+    desc_txt = description;
+    stat_txt = 'Status :: '+status;
+
+    title.innerHTML = title_txt;
+    desc.innerHTML = desc_txt;
+    stat.innerHTML = stat_txt;
+
+    stat.className = '';
+    stat.classList.add('text-center','text-bold','p-1','m-1');
+
+    if(status == "Pending"){
+        stat.classList.add('text-warning');
+        btn1.style.display = 'block';
+        btn2.style.display = 'block';
+
+        btn1.setAttribute('onclick','changeStatus(true , "'+id+'" )');
+        btn2.setAttribute('onclick','changeStatus(false , "'+id+'" )');
+    }
+        
+    else if(status == "Success")
+        stat.classList.add('text-success');
+    else
+        stat.classList.add('text-danger');
+}
+
+function changeStatus( res , id ){
+    arr = JSON.parse(localStorage.getItem('status'));
+
+    if(res)
+        arr[id-1] = "Success";
+    else
+        arr[id-1] = "Failed";
+
+    localStorage.setItem('status' , JSON.stringify(arr));
+    window.location.reload();
+}
+
 function show(status){
     
     taskId_arr  = JSON.parse(localStorage.getItem('tasksId'));
@@ -167,6 +225,4 @@ function show(status){
         }
         createRows(sendRes);
     }
-
-
 }
