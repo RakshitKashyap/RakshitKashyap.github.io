@@ -1,5 +1,10 @@
 // variables and initialization
 
+console.log("this project mainly composed of Bootstrap v5.0, html5 and css3 ");
+console.log("In this project you can create new task after finishing it you can simply change the status by clicking on the row ");
+console.log('All the record will be stored in local storage of your browser');
+console.log("I'm not very good at describing, just check it out, thank-you");
+
 let taskId_arr = [];
 let create_arr = [];
 let closed_arr = [];
