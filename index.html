@@ -24,9 +24,10 @@
                 <button class="nav-link text-left" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false" onclick="show('Failed')">Failed</button>
             </div>
             <div class="tab-content mt-3" id="v-pills-tabContent">
+
                 <!-- common things to be specified here -->
                 
-                <table class="table table-hover" id="table">
+                <table class="table" id="table">
                     <thead>
                         <tr>
                             <th>Task Id</th>
@@ -61,7 +62,7 @@
                                             <div class="p-1 my-1">
                                                 <div class="input-group">
                                                     <span class="input-group-text">Task Id</span>
-                                                    <input id="taskId" type="number" class="form-control" placeholder="Task Id" disabled>
+                                                    <input id="taskId" type="number" class="form-control" placeholder="Task Id">
                                                 </div>
                                             </div>
                                             <div class="p-1 my-1">
@@ -101,6 +102,35 @@
                         <button type="submit" id="saveBtn" class="btn btn-sm btn-outline-primary">Save</button>
                         <button type="reset" form="form1" class="btn btn-sm btn-outline-warning">Reset</button>
                         <button class="btn btn-sm btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal for changing status of task to do -->
+
+        <div class="modal" id="rowModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitle">task Id: :...:</h5>
+                        <button type="button" class="btn btn-sm btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <p class="text-bold text-secondary lead" id="modalTaskDec">Some description about the task</p>
+                        <p class="text-center text-bold p-1 m-1" id=taskStatus></p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="d-flex">
+                            <div class="p-1">
+                                <button class="btn btn-sm btn-outline-primary" id="passBtn">Completed</button>
+                            </div>
+                            <div class="p-1">
+                                <button class="btn btn-sm btn-outline-danger" id="failBtn">Failed</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
